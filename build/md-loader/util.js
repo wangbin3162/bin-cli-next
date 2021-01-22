@@ -1,5 +1,5 @@
-const { compileTemplate } = require('@vue/component-compiler-utils')
-const compiler = require('vue-template-compiler')
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { compileTemplate, TemplateCompiler } = require('@vue/compiler-sfc')
 
 function stripScript(content) {
   const result = content.match(/<(script)>([\s\S]+)<\/\1>/)
@@ -27,12 +27,20 @@ function pad(source) {
     .join('\n')
 }
 
+const templateReplaceRegex = /<template>([\s\S]+)<\/template>/g
 function genInlineComponentText(template, script) {
   // https://github.com/vuejs/vue-loader/blob/423b8341ab368c2117931e909e2da9af74503635/lib/loaders/templateLoader.js#L46
+  let source = template
+  if (templateReplaceRegex.test(source)) {
+    source = source.replace(templateReplaceRegex, '$1')
+  }
   const finalOptions = {
-    source: `<div>${template}</div>`,
+    source: `<div>${source}</div>`,
     filename: 'inline-component', // TODO：这里有待调整
-    compiler
+    compiler: TemplateCompiler,
+    compilerOptions: {
+      mode: 'function',
+    },
   }
   const compiled = compileTemplate(finalOptions)
   // tips
@@ -46,16 +54,19 @@ function genInlineComponentText(template, script) {
     console.error(
       `\n  Error compiling template:\n${pad(compiled.source)}\n` +
       compiled.errors.map(e => `  - ${e}`).join('\n') +
-      '\n'
+      '\n',
     )
   }
   let demoComponentContent = `
-    ${compiled.code}
+    ${(compiled.code).replace('return function render','function render')}
   `
   // todo: 这里采用了硬编码有待改进
   script = script.trim()
   if (script) {
-    script = script.replace(/export\s+default/, 'const democomponentExport =')
+    script = script
+      .replace(/export\s+default/, 'const democomponentExport =')
+      .replace(/import ({.*}) from 'vue'/g, (s, s1) => `const ${s1} = Vue`)
+      // .replace(/import ({.*}) from 'element-plus'/g, (s, s1) => `const ${s1} = require('element-plus')`)
   } else {
     script = 'const democomponentExport = {}'
   }
@@ -64,7 +75,6 @@ function genInlineComponentText(template, script) {
     ${script}
     return {
       render,
-      staticRenderFns,
       ...democomponentExport
     }
   })()`
@@ -75,5 +85,5 @@ module.exports = {
   stripScript,
   stripStyle,
   stripTemplate,
-  genInlineComponentText
+  genInlineComponentText,
 }

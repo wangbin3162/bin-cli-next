@@ -1,0 +1,39 @@
+{
+  "开发指南": [
+    {
+      "name": "guide",
+      "path": "/guide",
+      "desc": "介绍"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "安装"
+    },
+    {
+      "name": "start",
+      "path": "/start",
+      "desc": "快速开始"
+    },
+    {
+      "name": "logs",
+      "path": "/logs",
+      "desc": "更新日志"
+    }
+  ],
+  "组件": [
+    {
+      "desc": "基础",
+      "path": "/component",
+      "icon": "ios-browsers",
+      "items": [
+        {
+          "desc": "Button 按钮",
+          "icon": "logo-youtube",
+          "name": "button",
+          "path": "/button"
+        }
+      ]
+    }
+  ]
+}

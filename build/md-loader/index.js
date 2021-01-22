@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const {
   stripScript,
   stripTemplate,
-  genInlineComponentText
+  genInlineComponentText,
 } = require('./util')
 const md = require('./config')
 
-module.exports = function (source) {
+module.exports = function(source) {
   const content = md.render(source)
 
   const startTag = '<!--element-demo:'
@@ -15,7 +16,7 @@ module.exports = function (source) {
 
   let componenetsString = ''
   let id = 0 // demo 的 id
-  let output = [] // 输出的内容
+  const output = [] // 输出的内容
   let start = 0 // 字符串开始位置
 
   let commentStart = content.indexOf(startTag)
@@ -26,9 +27,9 @@ module.exports = function (source) {
     const commentContent = content.slice(commentStart + startTagLen, commentEnd)
     const html = stripTemplate(commentContent)
     const script = stripScript(commentContent)
-    let demoComponentContent = genInlineComponentText(html, script)
+    const demoComponentContent = genInlineComponentText(html, script)
     const demoComponentName = `element-demo${id}`
-    output.push(`<template slot="source"><${demoComponentName} /></template>`)
+    output.push(`<template #source><${demoComponentName} /></template>`)
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`
 
     // 重新计算下一次的位置
@@ -40,9 +41,11 @@ module.exports = function (source) {
 
   // 仅允许在 demo 不存在时，才可以在 Markdown 中写 script 标签
   // todo: 优化这段逻辑
+
   let pageScript = ''
   if (componenetsString) {
-    pageScript = `<script>
+    pageScript = `<script lang="ts">
+      import * as Vue from 'vue';
       export default {
         name: 'component-doc',
         components: {
@@ -56,12 +59,13 @@ module.exports = function (source) {
   }
 
   output.push(content.slice(start))
-  return `
-    <template>
-      <section class="content element-doc">
-        ${output.join('')}
-      </section>
-    </template>
-    ${pageScript}
+  const result = `
+  <template>
+    <section class="content element-doc">
+      ${output.join('')}
+    </section>
+  </template>
+  ${pageScript}
   `
+  return result
 }
