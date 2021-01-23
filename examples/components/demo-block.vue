@@ -14,6 +14,7 @@
     <div class="demo-block-control"
          ref="control"
          @click="isExpanded = !isExpanded">
+      <i :class="iconClass"></i>&nbsp;
       <span>{{ controlText }}</span>
     </div>
   </div>
@@ -39,6 +40,9 @@ export default {
     },
     codeArea() {
       return this.$el.getElementsByClassName('meta')[0]
+    },
+    iconClass() {
+      return this.isExpanded ? 'b-iconfont b-icon-caret-up' : 'b-iconfont b-icon-caret-down'
     },
     codeAreaHeight() {
       if (this.$el.getElementsByClassName('description').length > 0) {

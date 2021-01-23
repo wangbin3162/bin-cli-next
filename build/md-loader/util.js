@@ -53,8 +53,8 @@ function genInlineComponentText(template, script) {
   if (compiled.errors && compiled.errors.length) {
     console.error(
       `\n  Error compiling template:\n${pad(compiled.source)}\n` +
-      compiled.errors.map(e => `  - ${e}`).join('\n') +
-      '\n',
+        compiled.errors.map(e => `  - ${e}`).join('\n') +
+        '\n',
     )
   }
   let demoComponentContent = `
@@ -66,7 +66,7 @@ function genInlineComponentText(template, script) {
     script = script
       .replace(/export\s+default/, 'const democomponentExport =')
       .replace(/import ({.*}) from 'vue'/g, (s, s1) => `const ${s1} = Vue`)
-      // .replace(/import ({.*}) from 'element-plus'/g, (s, s1) => `const ${s1} = require('element-plus')`)
+      .replace(/import ({.*}) from 'element-plus'/g, (s, s1) => `const ${s1} = require('element-plus')`)
   } else {
     script = 'const democomponentExport = {}'
   }

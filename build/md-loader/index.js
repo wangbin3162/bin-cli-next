@@ -16,7 +16,7 @@ module.exports = function(source) {
 
   let componenetsString = ''
   let id = 0 // demo 的 id
-  const output = [] // 输出的内容
+  let output = [] // 输出的内容
   let start = 0 // 字符串开始位置
 
   let commentStart = content.indexOf(startTag)
@@ -27,7 +27,7 @@ module.exports = function(source) {
     const commentContent = content.slice(commentStart + startTagLen, commentEnd)
     const html = stripTemplate(commentContent)
     const script = stripScript(commentContent)
-    const demoComponentContent = genInlineComponentText(html, script)
+    let demoComponentContent = genInlineComponentText(html, script)
     const demoComponentName = `element-demo${id}`
     output.push(`<template #source><${demoComponentName} /></template>`)
     componenetsString += `${JSON.stringify(demoComponentName)}: ${demoComponentContent},`

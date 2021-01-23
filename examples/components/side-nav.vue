@@ -10,7 +10,8 @@
         <div v-for="item in nav.items" :key="item.name">
           <router-link :to="{name: item.name}" :class="$route.name===item.name ? 'active' : ''"
                        class="slid-nav-component">
-            {{ item.desc }}
+            <i :class="['b-iconfont','b-icon-'+item.icon]" v-if="item.icon"></i>
+            <span>{{ item.desc }}</span>
           </router-link>
         </div>
       </div>
@@ -20,6 +21,7 @@
 
 <script>
 import navConf from '../nav.config.json'
+
 export default {
   data() {
     return {
@@ -70,7 +72,6 @@ export default {
       padding: 8px 24px;
       color: #3f536e;
       font-weight: normal;
-      line-height: 1.5;
       cursor: pointer;
       &:hover {
         color: #2d8cf0;
@@ -83,11 +84,17 @@ export default {
       margin: 0;
     }
     .slid-nav-component {
-      display: block;
+      display: flex;
+      align-items: center;
       position: relative;
       padding: 8px 24px 8px 35px;
       color: #3f536e;
       font-size: 14px;
+      .b-iconfont {
+        position: relative;
+        top: 1px;
+        margin-right: 8px;
+      }
     }
     .active {
       color: #2d8cf0;

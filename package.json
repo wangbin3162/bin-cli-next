@@ -1,6 +1,6 @@
 {
   "name": "bin-cli-next",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "keywords": [
     "bin-ui",
     "bin",
@@ -12,13 +12,25 @@
   "author": "wang bin",
   "files": [
     "lib",
+    "es",
     "src"
   ],
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "typings": "lib/index.d.ts",
+  "unpkg": "lib/index.js",
   "private": false,
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.config.js",
-    "build:demo": "rimraf docs && cross-env NODE_ENV=production webpack --config build/webpack.config.js",
+    "dev": "webpack-dev-server --config build/webpack.dev.js",
+    "build:demo": "rimraf docs && cross-env NODE_ENV=production webpack --config build/webpack.dev.js",
+    "build": "yarn clean:lib && yarn build:esm-bundle && yarn build:lib && yarn build:lib-full && yarn build:utils && yarn build:style",
+    "clean:lib": "rimraf lib && rimraf es",
+    "build:esm-bundle": "rollup --config ./build/rollup.config.bundle.js",
+    "build:lib": "cross-env LIBMODE=core webpack --config ./build/webpack.config.js",
+    "build:lib-full": "cross-env LIBMODE=full webpack --config ./build/webpack.config.js",
+    "build:utils": "cross-env BABEL_ENV=utils babel src/utils --extensions .ts --out-dir lib/utils",
+    "build:style": "gulp --gulpfile build/build-style.js",
     "lint": "eslint ./src --ext .vue,.js,.ts",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts"
   },
@@ -33,7 +45,9 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
+    "@lerna/project": "^3.21.0",
     "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-typescript": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
