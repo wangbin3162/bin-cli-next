@@ -34,7 +34,8 @@
     "lint": "eslint ./src --ext .vue,.js,.ts",
     "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "peerDependencies": {
     "vue": "^3.0.5"
   },

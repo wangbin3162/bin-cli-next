@@ -23,5 +23,8 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    'vue/no-v-html': 'off',
+    'no-trailing-spaces': 'error',
+    'vue/singleline-html-element-content-newline': 'off'
   },
 }

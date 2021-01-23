@@ -13,6 +13,7 @@
     "lib": [
       "ESNext", "DOM"
     ],
+    "typeRoots": ["./node_modules/@types/", "./typings"],
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
