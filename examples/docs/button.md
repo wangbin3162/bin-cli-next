@@ -83,6 +83,7 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button disabled>Default</b-button>
@@ -134,6 +135,7 @@
 ::: demo 注意，文字按钮无法使用样式变量进行覆盖，可自主设置颜色值来改变
 
 ```html
+
 <template>
   <div class="demo-button">
     <div>
@@ -169,16 +171,21 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button-group>
-      <b-button type="primary" icon="ios-arrow-back">上一页</b-button>
-      <b-button type="primary">下一页<i class="iconfont icon-ios-arrow-forward"></i></b-button>
+      <b-button type="primary" icon="left">上一页</b-button>
+      <b-button type="primary">下一页<i class="b-iconfont b-icon-right"></i></b-button>
     </b-button-group>
     <b-button-group>
-      <b-button type="success" icon="ios-basketball"></b-button>
-      <b-button type="info" icon="ios-barcode"></b-button>
-      <b-button type="danger" icon="favorfill"></b-button>
+      <b-button>上一页</b-button>
+      <b-button>下一页</b-button>
+    </b-button-group>
+    <b-button-group>
+      <b-button type="success" icon="star"></b-button>
+      <b-button type="info" icon="heatmap"></b-button>
+      <b-button type="danger" icon="edit"></b-button>
     </b-button-group>
   </div>
 </template>
@@ -193,6 +200,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button size="large">Large</b-button>
@@ -218,6 +226,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button type="primary" :loading="loading" icon="reload"
@@ -253,6 +262,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button>Click me!</b-button>

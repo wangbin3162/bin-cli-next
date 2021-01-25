@@ -20,7 +20,7 @@ i 标签可以直接设置样式类名为 `b-iconfont b-icon-xxx` 来使用即�
 <ul class="icon-list">
     <li v-for="name in $icon" :key="name" class="list-complete-item">
         <span>
-            <i :class="['b-iconfont' , name]"></i>
+            <i :class="['b-iconfont' ,'b-icon-'+ name]"></i>
             <span class="icon-name">{{ name }}</span>
         </span>
     </li>
