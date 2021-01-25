@@ -11,7 +11,6 @@
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button>Default</b-button>
@@ -63,12 +62,13 @@
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button icon="ios-search">search</b-button>
     <b-button icon="ios-add-circle-outline">create</b-button>
-    <b-button icon="ios-checkmark-circle-outline" type="primary">check</b-button>
+    <b-button icon="ios-checkmark-circle-outline" type="primary"
+      >check</b-button
+    >
     <b-button icon="ios-close-circle" type="danger">delete</b-button>
   </div>
 </template>
@@ -83,7 +83,6 @@
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button disabled>Default</b-button>
@@ -117,10 +116,16 @@
     <b-button type="danger" dashed disabled>Danger</b-button>
   </div>
   <div class="demo-button" style="background: #cad4d4;padding: 10px;">
-    <b-button type="primary" transparent size="small" disabled>Primary</b-button>
-    <b-button type="success" transparent size="small" disabled>Success</b-button>
+    <b-button type="primary" transparent size="small" disabled
+      >Primary</b-button
+    >
+    <b-button type="success" transparent size="small" disabled
+      >Success</b-button
+    >
     <b-button type="info" transparent size="small" disabled>Info</b-button>
-    <b-button type="warning" transparent size="small" disabled>Warning</b-button>
+    <b-button type="warning" transparent size="small" disabled
+      >Warning</b-button
+    >
     <b-button type="danger" transparent size="small" disabled>Danger</b-button>
   </div>
 </template>
@@ -135,7 +140,6 @@
 ::: demo 注意，文字按钮无法使用样式变量进行覆盖，可自主设置颜色值来改变
 
 ```html
-
 <template>
   <div class="demo-button">
     <div>
@@ -171,12 +175,13 @@
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button-group>
       <b-button type="primary" icon="left">上一页</b-button>
-      <b-button type="primary">下一页<i class="b-iconfont b-icon-right"></i></b-button>
+      <b-button type="primary"
+        >下一页<i class="b-iconfont b-icon-right"></i
+      ></b-button>
     </b-button-group>
     <b-button-group>
       <b-button>上一页</b-button>
@@ -200,7 +205,6 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button size="large">Large</b-button>
@@ -226,17 +230,28 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
-    <b-button type="primary" :loading="loading" icon="reload"
-              @click="loading=true">Click me!
+    <b-button
+      type="primary"
+      :loading="loading"
+      icon="reload"
+      @click="loading=true"
+      >Click me!
     </b-button>
-    <b-button type="primary" :loading="loading1" loading-icon="loading1"
-              @click="loading1=true">Click me!
+    <b-button
+      type="primary"
+      :loading="loading1"
+      loading-icon="loading1"
+      @click="loading1=true"
+      >Click me!
     </b-button>
-    <b-button type="primary" :loading="loading2" loading-icon="loading2"
-              @click="loading2=true">Click me!
+    <b-button
+      type="primary"
+      :loading="loading2"
+      loading-icon="loading2"
+      @click="loading2=true"
+      >Click me!
     </b-button>
   </div>
 </template>
@@ -246,9 +261,9 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
       return {
         loading: false,
         loading1: false,
-        loading2: false
+        loading2: false,
       }
-    }
+    },
   }
 </script>
 ```
@@ -257,12 +272,11 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 
 ### 点击动画
 
-可以设置两种不同的点击动画['click','waves'] ,默认为click
+可以设置两种不同的点击动画['click','waves'] ,默认为 click
 
 ::: demo
 
 ```html
-
 <template>
   <div class="demo-button">
     <b-button>Click me!</b-button>
@@ -279,18 +293,18 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 
 ### Attributes
 
-| 参数      | 说明    | 类型      | 可选值       | 默认值   |
-|---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   large / small / mini            |    —     |
-| type     | 类型   | string    |   primary / success / warning / danger / info / text |     —    |
-| plain     | 是否朴素按钮   | boolean    | — | false   |
-| round     | 是否圆角按钮   | boolean    | — | false   |
-| transparent | 是否是透明按钮   | boolean    | — | false   |
-| loading     | 是否加载中状态   | boolean    | — | false   |
-| disabled  | 是否禁用状态    | boolean   | —   | false   |
-| icon  | 图标类名 | string   |  —  |  —  |
-| text-color  | 文字按钮颜色，默认禁用文字颜色增加亮度区分 | string  | primary / success / warning / danger / info / text / 自定义色值  |  —  |
-| icon-style  | 图标样式,可设置图标大小，字体对其等，可依托text-color设置颜色，也可以自定义 | Object   |  —  |  —  |
-| autofocus  | 是否默认聚焦 | boolean   |  —  |  false  |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| --- | --- | --- | --- | --- |
+| size | 尺寸 | string | large / small / mini | — |
+| type | 类型 | string | primary / success / warning / danger / info / text | — |
+| plain | 是否朴素按钮 | boolean | — | false |
+| round | 是否圆角按钮 | boolean | — | false |
+| transparent | 是否是透明按钮 | boolean | — | false |
+| loading | 是否加载中状态 | boolean | — | false |
+| disabled | 是否禁用状态 | boolean | — | false |
+| icon | 图标类名 | string | — | — |
+| text-color | 文字按钮颜色，默认禁用文字颜色增加亮度区分 | string | primary / success / warning / danger / info / text / 自定义色值 | — |
+| icon-style | 图标样式,可设置图标大小，字体对其等，可依托 text-color 设置颜色，也可以自定义 | Object | — | — |
+| autofocus | 是否默认聚焦 | boolean | — | false |
 | native-type | 原生 type 属性 | string | button / submit / reset | button |
 | animation-type | 点击动画 | string | click / waves | click |

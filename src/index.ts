@@ -1,7 +1,7 @@
 import type { App } from 'vue'
-import Icon from './components/icon'
-import Button from './components/button'
-import ButtonGroup from './components/button-group'
+import BIcon from './components/icon'
+import BButton from './components/button'
+import BButtonGroup from './components/button-group'
 
 import { copy } from './utils/util'
 import log from './utils/log'
@@ -11,7 +11,7 @@ import { ClickAnimation, ClickOutside, Waves } from './directives'
 import config from '../package.json'
 
 const components = [
-  Icon, Button, ButtonGroup,
+  BIcon, BButton, BButtonGroup,
 ]
 
 const install = function (app: App) {
@@ -26,11 +26,10 @@ const install = function (app: App) {
   app.config.globalProperties.$global = { zIndex: 2000 }
   app.config.globalProperties.$copy = copy
   app.config.globalProperties.$log = log
-  let baseUrl = 'https://wangbin3162.gitee.io'
-  log.pretty(`[${config.name}] ${config.version}`, `${baseUrl}/${config.name}`)
+  log.pretty(`[${config.name}] ${config.version}`, config.homepage)
   return app
 }
 
 export default {
-  install, Icon, Button, ButtonGroup,
+  install, BIcon, BButton, BButtonGroup,
 }

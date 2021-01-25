@@ -1,11 +1,11 @@
 <template>
   <div id="app" ref="scrollBox">
-    <main-header></main-header>
+    <main-header />
     <div class="main-cnt">
-      <side-nav class="nav"></side-nav>
+      <side-nav class="nav" />
       <div class="page-container">
-        <router-view></router-view>
-        <main-footer></main-footer>
+        <router-view />
+        <main-footer />
       </div>
     </div>
   </div>

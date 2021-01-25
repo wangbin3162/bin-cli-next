@@ -1,13 +1,18 @@
 <template>
   <header class="page-header">
     <div class="header-container">
-      <div class="left" style="width: 480px;">
+      <div class="left" style="width: 480px">
         <div class="logo"></div>
       </div>
       <div class="link">
-        <router-link :to="{name: 'guide'}" class="active">指南</router-link>
-        <router-link :to="{name: 'button'}" class="active">组件</router-link>
-        <a href="https://github.com/wangbin3162/bin-cli-next" class="github" target="_blank">GitHub</a>
+        <router-link :to="{ name: 'guide' }" class="active">指南</router-link>
+        <router-link :to="{ name: 'button' }" class="active">组件</router-link>
+        <a
+          href="https://github.com/wangbin3162/bin-ui-next"
+          class="github"
+          target="_blank"
+          >GitHub</a
+        >
       </div>
     </div>
   </header>
@@ -29,7 +34,7 @@ export default {
   right: 0;
   width: 100%;
   height: 80px;
-  transition: all .3s;
+  transition: all 0.3s;
   z-index: 100;
   .header-container {
     display: flex;
@@ -44,10 +49,10 @@ export default {
       font-family: helvetica;
       text-align: center;
       font-size: 40px;
-      margin-left: 30px
+      margin-left: 30px;
       width: 220px;
       height: 80px;
-      background: url("../assets/bin-ui.png") no-repeat 0 0
+      background: url('../assets/bin-ui.png') no-repeat 0 0;
       background-size: 220px 80px;
     }
     .link {

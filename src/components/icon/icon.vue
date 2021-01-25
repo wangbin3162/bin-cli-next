@@ -1,5 +1,5 @@
 <template>
-  <i :class="['b-iconfont','b-icon-' + name]" :style="getStyle"></i>
+  <i :class="['b-iconfont', 'b-icon-' + name]" :style="getStyle"></i>
 </template>
 
 <script lang="ts">
@@ -17,20 +17,12 @@ export default defineComponent({
   },
   setup(props) {
     const getStyle = computed(() => {
-      let style = {}
-      if (props.size) {
-        style['font-size'] = `${props.size}px`
+      return {
+        fontSize: props.size ? `${props.size}px` : null,
+        color: props.color,
       }
-      if (props.color) {
-        style.color = props.color
-      }
-      return style
     })
     return { getStyle }
   },
 })
 </script>
-
-<style scoped>
-
-</style>

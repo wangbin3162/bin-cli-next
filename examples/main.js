@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import { createApp } from 'vue'
 import router from './route'
 import App from './App.vue'

@@ -22,9 +22,11 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'vue/no-v-html': 'off',
     'no-trailing-spaces': 'error',
-    'vue/singleline-html-element-content-newline': 'off'
+    'vue/no-v-html': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   },
 }
