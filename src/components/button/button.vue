@@ -19,12 +19,12 @@
     @click="handleClick"
     v-click-animation
   >
-    <b-icon
+    <i
       class="button-loading icon-is-rotating"
-      :name="loadingIcon ? loadingIcon : 'loading'"
+      :class="['b-iconfont', 'b-icon-' + loadingIcon ? loadingIcon : 'loading']"
       v-if="loading"
       :style="iconStyles"
-    />
+    ></i>
     <i
       :class="['b-iconfont', 'b-icon-' + icon]"
       v-if="icon && !loading"
@@ -52,12 +52,12 @@
     @click="handleClick"
     v-waves="waveColor"
   >
-    <b-icon
+    <i
       class="button-loading icon-is-rotating"
-      :name="loadingIcon ? loadingIcon : 'loading'"
+      :class="['b-iconfont', 'b-icon-' + loadingIcon ? loadingIcon : 'loading']"
       v-if="loading"
       :style="iconStyles"
-    />
+    ></i>
     <i
       :class="['b-iconfont', 'b-icon-' + icon]"
       v-if="icon && !loading"
@@ -77,6 +77,12 @@
     @click="handleClick"
   >
     <i
+      class="button-loading icon-is-rotating"
+      :class="['b-iconfont', 'b-icon-' + loadingIcon ? loadingIcon : 'loading']"
+      v-if="loading"
+      :style="iconStyles"
+    ></i>
+    <i
       :class="['b-iconfont', 'b-icon-' + icon]"
       v-if="icon && !loading"
       :style="iconStyles"
@@ -87,9 +93,12 @@
 
 <script>
 import { validSize } from '../../utils/validator-size'
+import clickAnimation from '../../directives/click-animation'
+import waves from '../../directives/waves'
 
 export default {
   name: 'BButton',
+  directives: { clickAnimation, waves },
   props: {
     type: {
       type: String,

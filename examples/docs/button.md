@@ -1,5 +1,20 @@
 ## Button 按钮
 
+
+<div class="global-anchor">
+  <b-anchor :scroll-offset="100">
+    <b-anchor-link href="#ji-chu-yong-fa" title="基础用法"></b-anchor-link>
+    <b-anchor-link href="#dai-tu-biao-de-an-niu" title="带图标"></b-anchor-link>
+    <b-anchor-link href="#jin-yong-an-niu" title="禁用按钮"></b-anchor-link>
+    <b-anchor-link href="#wen-zi-an-niu" title="文字按钮"></b-anchor-link>
+    <b-anchor-link href="#an-niu-zu" title="按钮组"></b-anchor-link>
+    <b-anchor-link href="#bu-tong-chi-cun" title="不同尺寸"></b-anchor-link>
+    <b-anchor-link href="#jia-zai-zhuang-tai" title="加载状态"></b-anchor-link>
+    <b-anchor-link href="#dian-ji-dong-hua" title="点击动画"></b-anchor-link>
+    <b-anchor-link href="#props" title="Props"></b-anchor-link>
+  </b-anchor>
+</div>
+
 常用的操作按钮。
 
 ### 基础用法
@@ -11,6 +26,7 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button>Default</b-button>
@@ -62,14 +78,13 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
-    <b-button icon="ios-search">search</b-button>
-    <b-button icon="ios-add-circle-outline">create</b-button>
-    <b-button icon="ios-checkmark-circle-outline" type="primary"
-      >check</b-button
-    >
-    <b-button icon="ios-close-circle" type="danger">delete</b-button>
+    <b-button icon="search">search</b-button>
+    <b-button icon="plus-circle">create</b-button>
+    <b-button icon="check-circle" type="primary">check</b-button>
+    <b-button icon="delete" type="danger">delete</b-button>
   </div>
 </template>
 ```
@@ -83,6 +98,7 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button disabled>Default</b-button>
@@ -116,16 +132,10 @@
     <b-button type="danger" dashed disabled>Danger</b-button>
   </div>
   <div class="demo-button" style="background: #cad4d4;padding: 10px;">
-    <b-button type="primary" transparent size="small" disabled
-      >Primary</b-button
-    >
-    <b-button type="success" transparent size="small" disabled
-      >Success</b-button
-    >
+    <b-button type="primary" transparent size="small" disabled>Primary</b-button>
+    <b-button type="success" transparent size="small" disabled>Success</b-button>
     <b-button type="info" transparent size="small" disabled>Info</b-button>
-    <b-button type="warning" transparent size="small" disabled
-      >Warning</b-button
-    >
+    <b-button type="warning" transparent size="small" disabled>Warning</b-button>
     <b-button type="danger" transparent size="small" disabled>Danger</b-button>
   </div>
 </template>
@@ -140,6 +150,7 @@
 ::: demo 注意，文字按钮无法使用样式变量进行覆盖，可自主设置颜色值来改变
 
 ```html
+
 <template>
   <div class="demo-button">
     <div>
@@ -175,12 +186,13 @@
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button-group>
       <b-button type="primary" icon="left">上一页</b-button>
       <b-button type="primary"
-        >下一页<i class="b-iconfont b-icon-right"></i
+      >下一页<i class="b-iconfont b-icon-right"></i
       ></b-button>
     </b-button-group>
     <b-button-group>
@@ -205,6 +217,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button size="large">Large</b-button>
@@ -230,6 +243,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button
@@ -237,21 +251,21 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
       :loading="loading"
       icon="reload"
       @click="loading=true"
-      >Click me!
+    >Click me!
     </b-button>
     <b-button
       type="primary"
       :loading="loading1"
       loading-icon="loading1"
       @click="loading1=true"
-      >Click me!
+    >Click me!
     </b-button>
     <b-button
       type="primary"
       :loading="loading2"
       loading-icon="loading2"
       @click="loading2=true"
-      >Click me!
+    >Click me!
     </b-button>
   </div>
 </template>
@@ -277,6 +291,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ::: demo
 
 ```html
+
 <template>
   <div class="demo-button">
     <b-button>Click me!</b-button>
@@ -289,9 +304,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 
 :::
 
-### API
-
-### Attributes
+### Props
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | --- | --- | --- | --- | --- |

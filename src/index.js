@@ -3,24 +3,92 @@ import BAnchorLink from './components/anchor-link'
 import BIcon from './components/icon'
 import BButton from './components/button'
 import BButtonGroup from './components/button-group'
+import BScrollbar from './components/scrollbar'
 import BBackTop from './components/back-top'
+import BEmpty from './components/empty'
+import BLoading from './components/loading'
+import BRow from './components/row'
+import BCol from './components/col'
+import BCollapseTransition from './components/collapse-transition'
+import BDivider from './components/divider'
+import BPopover from './components/popover'
+import BTooltip from './components/tooltip'
+import BMenu from './components/menu'
+import BMenuItem from './components/menu-item'
+import BSubmenu from './components/submenu'
+import BMenuItemGroup from './components/menu-item-group'
+import BAffix from './components/affix'
+import BBreadcrumb from './components/breadcrumb'
+import BBreadcrumbItem from './components/breadcrumb-item'
+import BTabs from './components/tabs'
+import BSteps from './components/steps'
+import BStep from './components/step'
+import BDropdown from './components/dropdown'
+import BDropdownItem from './components/dropdown-item'
+import BDropdownMenu from './components/dropdown-menu'
+import BTimeline from './components/timeline'
+import BTimelineItem from './components/timeline-item'
+import BCarousel from './components/carousel'
+import BCarouselItem from './components/carousel-item'
+import BCalendar from './components/calendar'
+import BAlert from './components/alert'
+import BDrawer from './components/drawer'
+import BModal from './components/modal'
 import Message from './components/message'
+import MessageBox from './components/message-box'
+import Notice from './components/notice'
 
 import * as util from './utils/util'
 import { setConfig } from './utils/config'
 import log from './utils/log'
 import { scrollTop } from './utils/dom'
 
-import { ClickAnimation, ClickOutside, Waves } from './directives'
+import { ClickAnimation, ClickOutside, NoData, Loading, Waves } from './directives'
 
 import config from '../package.json'
 
 const components = [
-  BIcon, BButton, BButtonGroup,
-  BAnchor, BAnchorLink, BBackTop,
+  BAnchor,
+  BAnchorLink,
+  BIcon,
+  BButton,
+  BButtonGroup,
+  BBackTop,
+  BScrollbar,
+  BEmpty,
+  BRow,
+  BCol,
+  BLoading,
+  BCollapseTransition,
+  BDivider,
+  BPopover,
+  BTooltip,
+  BMenu,
+  BMenuItem,
+  BSubmenu,
+  BMenuItemGroup,
+  BAffix,
+  BBreadcrumb,
+  BBreadcrumbItem,
+  BTabs,
+  BSteps,
+  BStep,
+  BDropdown,
+  BDropdownItem,
+  BDropdownMenu,
+  BTimeline,
+  BTimelineItem,
+  BCarousel,
+  BCarouselItem,
+  BCalendar,
+  BAlert,
+  BDrawer,
+  BModal,
 ]
 const plugins = [
   Message,
+  MessageBox,
+  Notice,
 ]
 const defaultInstallOpt = {
   zIndex: 2000,
@@ -35,7 +103,9 @@ const install = function(app) {
   // 注册全局指令
   app.directive('Waves', Waves)
   app.directive('ClickAnimation', ClickAnimation)
-  app.directive('ClickOutSide', ClickOutside)
+  app.directive('ClickOutside', ClickOutside)
+  app.directive('NoData', NoData)
+  app.directive('Loading', Loading)
   // 注册全局函数和属性
   app.config.globalProperties.$global = defaultInstallOpt
   setConfig(defaultInstallOpt)
@@ -62,7 +132,39 @@ export {
   BButton,
   BButtonGroup,
   BBackTop,
+  BScrollbar,
+  BEmpty,
+  BRow,
+  BCol,
+  BLoading,
+  BCollapseTransition,
+  BDivider,
+  BPopover,
+  BTooltip,
+  BMenu,
+  BMenuItem,
+  BSubmenu,
+  BMenuItemGroup,
+  BAffix,
+  BBreadcrumb,
+  BBreadcrumbItem,
+  BTabs,
+  BSteps,
+  BStep,
+  BDropdown,
+  BDropdownItem,
+  BDropdownMenu,
+  BTimeline,
+  BTimelineItem,
+  BCarousel,
+  BCarouselItem,
+  BCalendar,
+  BAlert,
+  BDrawer,
+  BModal,
   Message,
+  MessageBox,
+  Notice,
 }
 
 export default {

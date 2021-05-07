@@ -80,3 +80,10 @@ const log = {
 }
 
 export default log
+
+export const throwError = (scope, m) => {
+  pretty(scope, m, 'danger')
+}
+export const throwWarn = (scope, m) => {
+  pretty(scope, m, 'warning')
+}
