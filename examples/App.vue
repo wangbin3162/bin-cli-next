@@ -7,13 +7,27 @@
         <router-view />
         <main-footer />
       </div>
+      <b-back-top></b-back-top>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+
 export default {
   name: 'App',
+  setup() {
+    const route = useRoute()
+    watch(() => route.path, () => {
+      if (route.meta.desc) {
+        document.title = route.meta.desc + ' - Bin UI Next'
+        document.scrollingElement.scrollTop = 0
+      }
+    })
+    return {}
+  },
 }
 </script>
 

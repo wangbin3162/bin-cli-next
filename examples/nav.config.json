@@ -3,17 +3,17 @@
     {
       "name": "guide",
       "path": "/guide",
-      "desc": "介绍"
-    },
-    {
-      "name": "install",
-      "path": "/install",
-      "desc": "安装"
+      "desc": "指南"
     },
     {
       "name": "start",
       "path": "/start",
-      "desc": "快速开始"
+      "desc": "快速上手"
+    },
+    {
+      "name": "theme",
+      "path": "/theme",
+      "desc": "定制主题"
     },
     {
       "name": "logs",
@@ -24,12 +24,22 @@
   "组件": [
     {
       "desc": "基础",
-      "path": "/component",
-      "icon": "ios-browsers",
       "items": [
         {
+          "desc": "Base 基础",
+          "icon": "appstore",
+          "name": "base",
+          "path": "/base"
+        },
+        {
+          "desc": "Color 颜色",
+          "icon": "bg-colors",
+          "name": "color",
+          "path": "/color"
+        },
+        {
           "desc": "Icon 图标",
-          "icon": "fire-fill",
+          "icon": "fire",
           "name": "icon",
           "path": "/icon"
         },
@@ -38,6 +48,361 @@
           "icon": "Youtube",
           "name": "button",
           "path": "/button"
+        },
+        {
+          "desc": "Directive 指令",
+          "icon": "bulb",
+          "name": "directive",
+          "path": "/directive"
+        },
+        {
+          "desc": "Console 控制台",
+          "icon": "bug",
+          "name": "console",
+          "path": "/console"
+        },
+        {
+          "desc": "Transition 过渡",
+          "icon": "project",
+          "name": "transition",
+          "path": "/transition"
+        },
+        {
+          "desc": "Draggable 拖拽",
+          "icon": "drag",
+          "name": "sortablejs",
+          "path": "/sortablejs"
+        }
+      ]
+    },
+    {
+      "desc": "布局",
+      "items": [
+        {
+          "desc": "Grid 栅格",
+          "icon": "layout",
+          "name": "grid",
+          "path": "/grid"
+        },
+        {
+          "desc": "Scrollbar 滚动",
+          "icon": "container",
+          "name": "scrollbar",
+          "path": "/scrollbar"
+        },
+        {
+          "desc": "Divider 分割线",
+          "icon": "line",
+          "name": "divider",
+          "path": "/divider"
+        }
+      ]
+    },
+    {
+      "desc": "导航",
+      "items": [
+        {
+          "desc": "Menu 导航菜单",
+          "icon": "menu",
+          "name": "menu",
+          "path": "/menu"
+        },
+        {
+          "desc": "Affix 图钉",
+          "icon": "pushpin",
+          "name": "affix",
+          "path": "/affix"
+        },
+        {
+          "desc": "Anchor 锚点",
+          "icon": "attachment",
+          "name": "anchor",
+          "path": "/anchor"
+        },
+        {
+          "desc": "Breadcrumb 面包屑",
+          "icon": "right",
+          "name": "breadcrumb",
+          "path": "/breadcrumb"
+        },
+        {
+          "desc": "BackTop 返回顶部",
+          "icon": "up",
+          "name": "backtop",
+          "path": "/backtop"
+        },
+        {
+          "desc": "Tabs 标签页",
+          "icon": "project",
+          "name": "tabs",
+          "path": "/tabs"
+        },
+        {
+          "desc": "Dropdown 下拉菜单",
+          "icon": "caret-down",
+          "name": "dropdown",
+          "path": "/dropdown"
+        },
+        {
+          "desc": "Steps 步骤条",
+          "icon": "arrowright",
+          "name": "steps",
+          "path": "/steps"
+        },
+        {
+          "desc": "Loading 加载",
+          "icon": "loading2",
+          "name": "loading",
+          "path": "/loading"
+        }
+      ]
+    },
+    {
+      "desc": "表单",
+      "items": [
+        {
+          "desc": "Input 输入框",
+          "icon": "edit-square",
+          "name": "input",
+          "path": "/input"
+        },
+        {
+          "desc": "InputNumber 数字输入",
+          "icon": "shake",
+          "name": "inputNumber",
+          "path": "/inputNumber"
+        },
+        {
+          "desc": "Radio 单选框",
+          "icon": "plus-circle",
+          "name": "radio",
+          "path": "/radio"
+        },
+        {
+          "desc": "Checkbox 多选框",
+          "icon": "check-square",
+          "name": "checkbox",
+          "path": "/checkbox"
+        },
+        {
+          "desc": "Switch 开关",
+          "icon": "build",
+          "name": "switch",
+          "path": "/switch"
+        },
+        {
+          "desc": "Select 选择器",
+          "icon": "unorderedlist",
+          "name": "select",
+          "path": "/select"
+        },
+        {
+          "desc": "Cascader 级联选择",
+          "icon": "pic-left",
+          "name": "cascader",
+          "path": "/cascader",
+          "writing": true
+        },
+        {
+          "desc": "DatePicker 日期选择器",
+          "icon": "calendar",
+          "name": "datePicker",
+          "path": "/datePicker",
+          "writing": true
+        },
+        {
+          "desc": "TimePicker 时间选择器",
+          "icon": "time-circle",
+          "name": "timePicker",
+          "path": "/timePicker",
+          "writing": true
+        },
+        {
+          "desc": "ColorPicker 颜色选择器",
+          "icon": "bg-colors",
+          "name": "colorPicker",
+          "path": "/colorPicker",
+          "writing": true
+        },
+        {
+          "desc": "Rate 评分",
+          "icon": "star",
+          "name": "rate",
+          "path": "/rate"
+        },
+        {
+          "desc": "Slider 滑块组件",
+          "icon": "sliders",
+          "name": "slider",
+          "path": "/slider",
+          "writing": true
+        },
+        {
+          "desc": "upload 上传",
+          "icon": "cloud-upload",
+          "name": "upload",
+          "path": "/upload",
+          "writing": true
+        },
+        {
+          "desc": "Form 表单",
+          "icon": "reconciliation",
+          "name": "form",
+          "path": "/form",
+          "writing": true
+        }
+      ]
+    },
+    {
+      "desc": "数据",
+      "items": [
+        {
+          "desc": "Table 表格",
+          "icon": "table",
+          "name": "table",
+          "path": "/table",
+          "writing": true
+        },
+        {
+          "desc": "Page 分页器",
+          "icon": "read",
+          "name": "page",
+          "path": "/page"
+        },
+        {
+          "desc": "Tree 树结构",
+          "icon": "branches",
+          "name": "tree",
+          "path": "/tree"
+        },
+        {
+          "desc": "Desc 描述列表",
+          "icon": "unorderedlist",
+          "name": "desc",
+          "path": "/desc"
+        },
+        {
+          "desc": "Progress 进度条",
+          "icon": "hourglass",
+          "name": "progress",
+          "path": "/progress"
+        },
+        {
+          "desc": "Circle 进度环",
+          "icon": "redo",
+          "name": "circle",
+          "path": "/circle"
+        }
+      ]
+    },
+    {
+      "desc": "视图",
+      "items": [
+        {
+          "desc": "Card 卡片",
+          "icon": "creditcard",
+          "name": "card",
+          "path": "/card"
+        },
+        {
+          "desc": "Badge 徽标",
+          "icon": "border",
+          "name": "badge",
+          "path": "/badge"
+        },
+        {
+          "desc": "Collapse 折叠面板",
+          "icon": "database",
+          "name": "collapse",
+          "path": "/collapse"
+        },
+        {
+          "desc": "Split 分割面板",
+          "icon": "block",
+          "name": "split",
+          "path": "/split"
+        },
+        {
+          "desc": "Tag 标签",
+          "icon": "tags",
+          "name": "tag",
+          "path": "/tag"
+        }
+      ]
+    },
+    {
+      "desc": "反馈",
+      "items": [
+        {
+          "desc": "Alert 警告提示",
+          "icon": "error-fill",
+          "name": "alert",
+          "path": "/alert"
+        },
+        {
+          "desc": "Modal 模态框",
+          "icon": "idcard",
+          "name": "modal",
+          "path": "/modal"
+        },
+        {
+          "desc": "Message 提示",
+          "icon": "message",
+          "name": "message",
+          "path": "/message"
+        },
+        {
+          "desc": "Notice 通知",
+          "icon": "notification",
+          "name": "notice",
+          "path": "/notice"
+        },
+        {
+          "desc": "MessageBox 弹框",
+          "icon": "mail",
+          "name": "messageBox",
+          "path": "/messageBox"
+        },
+        {
+          "desc": "Tooltip 提示",
+          "icon": "info-circle-fill",
+          "name": "tooltip",
+          "path": "/tooltip"
+        },
+        {
+          "desc": "Popover 气泡弹框",
+          "icon": "question-circle",
+          "name": "popover",
+          "path": "/popover"
+        },
+        {
+          "desc": "Drawer 抽屉",
+          "icon": "build",
+          "name": "drawer",
+          "path": "/drawer"
+        }
+      ]
+    },
+    {
+      "desc": "其他",
+      "items": [
+        {
+          "desc": "Calendar 日历组件",
+          "icon": "calendar-fill",
+          "name": "calendar",
+          "path": "/calendar"
+        },
+        {
+          "desc": "Carousel 轮播",
+          "icon": "appstore-fill",
+          "name": "carousel",
+          "path": "/carousel"
+        },
+        {
+          "desc": "Timeline 时间线",
+          "icon": "arrowdown",
+          "name": "timeline",
+          "path": "/timeline"
         }
       ]
     }

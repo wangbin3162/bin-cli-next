@@ -1,24 +1,15 @@
 module.exports = {
   presets: [
     [
-      '@babel/env',
+      '@babel/preset-env',
       {
         loose: true,
         modules: false,
       },
     ],
-    '@babel/typescript',
   ],
   plugins: [
     '@vue/babel-plugin-jsx',
-  ],
-  overrides: [
-    {
-      test: /\.vue$/,
-      plugins: [
-        '@babel/transform-typescript',
-      ],
-    },
   ],
   env: {
     utils: {
@@ -28,6 +19,15 @@ module.exports = {
           {
             loose: true,
             modules: false,
+          },
+        ],
+      ],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            root: ['bin-ui-next'],
+            alias: { 'bin-ui-next/src': 'bin-ui-next/lib' },
           },
         ],
       ],

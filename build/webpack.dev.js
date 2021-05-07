@@ -10,14 +10,15 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   mode: isProd ? 'production' : 'development',
-  devtool: !isProd && 'cheap-module-eval-source-map',
+  devtool: 'eval-source-map',
   entry: {
     app: './examples/main.js',
   },
   output: {
     path: path.resolve(__dirname, '../docs'),
-    publicPath: '/',
-    filename: isProd ? '[name].[hash].js' : '[name].js',
+    publicPath: isProd ? '' : '/',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].[hash:7].js',
   },
   module: {
     rules: [
@@ -26,7 +27,7 @@ const config = {
         use: 'vue-loader',
       },
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(js)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
@@ -69,10 +70,10 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json'],
     alias: {
-      vue: 'vue/dist/vue.esm-browser.js',
-      // 'bin-ui': '../../src/index',
+      vue: 'vue',
+      'bin-ui-next': '../src/index.js',
       examples: path.resolve(__dirname),
     },
   },
@@ -85,6 +86,9 @@ const config = {
     }),
     // new BundleAnalyzerPlugin(),
   ],
+  performance: {
+    hints: false,
+  },
   devServer: {
     inline: true,
     hot: true,
@@ -93,9 +97,9 @@ const config = {
     publicPath: '/',
     contentBase: __dirname,
     overlay: true,
-    open: true,
   },
   optimization: {
+    splitChunks: {},
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin(),
@@ -103,11 +107,36 @@ const config = {
   },
 }
 
+if (isProd) {
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+    }),
+  )
+
+  config.optimization.splitChunks = {
+    chunks: 'async',
+    minSize: 30000, // 模块大于30k会被抽离到公共模块
+    minChunks: 1, // 模块出现1次就会被抽离到公共模块
+    maxAsyncRequests: 5, // 异步模块，一次最多只能被加载5个
+    maxInitialRequests: 3, // 入口模块最多只能加载3个
+    name: true,
+    cacheGroups: {
+      default: {
+        minChunks: 2,
+        priority: -20,
+        reuseExistingChunk: true,
+      },
+      vendors: {
+        name: 'vendors',
+        test: /[\\/]node_modules[\\/]/,
+        priority: -10,
+        chunks: 'all',
+      },
+    },
+  }
+}
 config.plugins.push(
-  new MiniCssExtractPlugin({
-    filename: '[name].[contenthash].css',
-    chunkFilename: '[id].[contenthash].css',
-  }),
   new webpack.DefinePlugin({
     __VUE_OPTIONS_API__: JSON.stringify(true),
     __VUE_PROD_DEVTOOLS__: JSON.stringify(false),

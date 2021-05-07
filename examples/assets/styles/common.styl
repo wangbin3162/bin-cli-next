@@ -1,6 +1,9 @@
 a {
   color: #1089ff;
   text-decoration: none;
+  &:focus {
+    outline: none;
+  }
 }
 table {
   width: 100%;
@@ -23,6 +26,8 @@ table {
 .element-doc {
   margin: 0 auto;
   padding: 24px 178px 24px 24px
+  color: #314659;
+  font-size: 14px;
   code {
     background-color: #f9fafc;
     padding: 0 4px;
@@ -32,6 +37,9 @@ table {
     margin: 0 4px;
     &.hljs {
       padding: 16px 24px;
+    }
+    &.html.hljs.xml {
+      padding: 0 24px 16px;
     }
   }
   p {
@@ -64,6 +72,16 @@ table {
     color: #1f2f3d;
     font-size: 16px;
   }
+  .b-menu-demo {
+    padding-left: 55px;
+  }
+}
+
+.doc-li > li {
+  list-style: circle;
+  margin-left: 20px;
+  padding-left: 4px;
+  line-height: 2;
 }
 .icon-search {
   position: relative;
@@ -122,11 +140,12 @@ table {
   }
   .center-left {
     float: left;
-    text-align: center;
   }
   .center-right {
     float: right;
-    text-align: center;
+  }
+  .bin-button {
+    margin-right: 10px;
   }
 }
 
@@ -165,5 +184,10 @@ table {
         background: rgba(0, 153, 229, .8);
       }
     }
+  }
+}
+.demo-tag {
+  .bin-tag {
+    margin: 0 6px 6px 0;
   }
 }

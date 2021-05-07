@@ -485,6 +485,7 @@
   background: transparent;
   padding: 0;
   height: auto;
+  line-height: $base-line-height;
   &:focus, &:hover {
     color: $color-primary-light1;
     border-color: transparent;
@@ -517,7 +518,7 @@
     &:hover {
       z-index: 1;
     }
-    &:active {
+    &:active, &:focus {
       z-index: 1;
       outline: none;
     }
