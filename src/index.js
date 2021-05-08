@@ -34,6 +34,27 @@ import BCalendar from './components/calendar'
 import BAlert from './components/alert'
 import BDrawer from './components/drawer'
 import BModal from './components/modal'
+import BCard from './components/card'
+import BBadge from './components/badge'
+import BCollapse from './components/collapse'
+import BCollapsePanel from './components/collapse-panel'
+import BCollapseWrap from './components/collapse-wrap'
+import BSplit from './components/split'
+import BTag from './components/tag'
+import BCircle from './components/circle'
+import BProgress from './components/progress'
+import BInput from './components/input'
+import BInputNumber from './components/input-number'
+import BSwitch from './components/switch'
+import BCheckbox from './components/checkbox'
+import BCheckboxGroup from './components/checkbox-group'
+import BRadio from './components/radio'
+import BRadioGroup from './components/radio-group'
+import BTree from './components/tree'
+import BBigTree from './components/tree-big'
+import BDesc from './components/desc'
+import BDescItem from './components/desc-item'
+import BRate from './components/rate'
 import Message from './components/message'
 import MessageBox from './components/message-box'
 import Notice from './components/notice'
@@ -84,6 +105,27 @@ const components = [
   BAlert,
   BDrawer,
   BModal,
+  BCard,
+  BBadge,
+  BCollapse,
+  BCollapsePanel,
+  BCollapseWrap,
+  BSplit,
+  BTag,
+  BCircle,
+  BProgress,
+  BInput,
+  BInputNumber,
+  BSwitch,
+  BRadio,
+  BRadioGroup,
+  BCheckbox,
+  BCheckboxGroup,
+  BTree,
+  BBigTree,
+  BDesc,
+  BDescItem,
+  BRate,
 ]
 const plugins = [
   Message,
@@ -162,6 +204,27 @@ export {
   BAlert,
   BDrawer,
   BModal,
+  BCard,
+  BBadge,
+  BCollapse,
+  BCollapsePanel,
+  BCollapseWrap,
+  BSplit,
+  BTag,
+  BCircle,
+  BProgress,
+  BInput,
+  BInputNumber,
+  BSwitch,
+  BRadio,
+  BRadioGroup,
+  BCheckbox,
+  BCheckboxGroup,
+  BTree,
+  BBigTree,
+  BDesc,
+  BDescItem,
+  BRate,
   Message,
   MessageBox,
   Notice,

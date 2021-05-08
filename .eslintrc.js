@@ -16,6 +16,8 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'no-unused-vars': 'off',
     'vue/no-v-html': 'off',
+    'vue/no-deprecated-v-on-native-modifier': 'off',
+    'vue/no-mutating-props': 'off',
     'indent': 'off',
   },
 }
