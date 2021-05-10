@@ -231,5 +231,5 @@ export function throttle(func, wait, immediate) {
  * @return {function}             返回客户调用函数
  */
 export function debounce(func, wait) {
-  throttle(func, wait, false)
+  return throttle(func, wait, false)
 }

@@ -55,6 +55,10 @@ import BBigTree from './components/tree-big'
 import BDesc from './components/desc'
 import BDescItem from './components/desc-item'
 import BRate from './components/rate'
+import BSelect from './components/select'
+import BOption from './components/option'
+import BOptionGroup from './components/option-group'
+import BPage from './components/page'
 import Message from './components/message'
 import MessageBox from './components/message-box'
 import Notice from './components/notice'
@@ -126,6 +130,10 @@ const components = [
   BDesc,
   BDescItem,
   BRate,
+  BSelect,
+  BOption,
+  BOptionGroup,
+  BPage,
 ]
 const plugins = [
   Message,
@@ -225,6 +233,10 @@ export {
   BDesc,
   BDescItem,
   BRate,
+  BSelect,
+  BOption,
+  BOptionGroup,
+  BPage,
   Message,
   MessageBox,
   Notice,

@@ -185,6 +185,7 @@ export default {
     'click',
     'blur',
     'focus',
+    'input',
     'input-change',
     'clear',
   ],
@@ -323,6 +324,7 @@ export default {
       setCurrentValue(value)
       ctx.emit(UPDATE_MODEL_EVENT, value)
       ctx.emit(CHANGE_EVENT, e)
+      ctx.emit('input', e)
     }
     const handleChange = (e) => {
       ctx.emit('input-change', e)
