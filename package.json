@@ -1,19 +1,19 @@
 {
   "name": "bin-ui-next",
-  "version": "0.0.2",
+  "version": "0.1.9",
   "keywords": [
+    "bin-ui-next",
     "bin-ui",
     "bin",
     "ui",
     "vue",
-    "vue",
+    "vue3",
     "components"
   ],
   "author": "wangbin",
   "files": [
     "lib",
-    "src",
-    "typings"
+    "src"
   ],
   "main": "lib/bin-ui.common.js",
   "module": "lib/bin-ui.esm.js",
@@ -29,7 +29,9 @@
     "clean-lib": "rimraf lib",
     "build:type": "tsc",
     "build:lib": "rollup --config ./build/rollup.config.js",
-    "build:style": "gulp --gulpfile ./build/gulpfile.js"
+    "build:style": "gulp --gulpfile ./build/gulpfile.js",
+    "lint": "eslint ./src --ext .vue,.js,.ts",
+    "lint-fix": "eslint --fix ./src --ext .vue,.js,.ts"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
@@ -52,8 +54,6 @@
     "@rollup/plugin-replace": "^2.3.4",
     "@vue/babel-plugin-jsx": "^1.0.0",
     "@vue/compiler-sfc": "^3.0.5",
-    "@vue/shared": "^3.0.11",
-    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "cross-env": "^7.0.2",
