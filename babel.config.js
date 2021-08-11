@@ -26,8 +26,8 @@ module.exports = {
         [
           'module-resolver',
           {
-            root: ['bin-ui-next'],
-            alias: { 'bin-ui-next/src': 'bin-ui-next/lib' },
+            root: ['bin-cli-next'],
+            alias: { 'bin-cli-next/src': 'bin-cli-next/lib' },
           },
         ],
       ],

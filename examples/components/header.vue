@@ -1,26 +1,44 @@
 <template>
   <header class="page-header">
     <div class="header-container">
-      <div class="left" style="width: 480px">
-        <div class="logo"></div>
+      <div class="left" style="width: 580px" flex="main:justify cross:center">
+        <div class="logo">
+          <img src="../assets/images/logo/bin-ui-next-02.svg" class="icon" alt="icon"/>
+          <div class="text">
+            <img src="../assets/images/text.svg" alt="text"/>
+          </div>
+        </div>
       </div>
-      <div class="link">
+      <div class="link-box">
+        <b-tooltip content="搜索组件">
+          <span class="search" @click="openSearch"><i class="b-iconfont b-icon-search"></i></span>
+        </b-tooltip>
         <router-link :to="{ name: 'guide' }" class="active">指南</router-link>
-        <router-link :to="{ name: 'button' }" class="active">组件</router-link>
         <a
-          href="https://github.com/wangbin3162/bin-ui-next"
+          href="https://github.com/wangbin3162/bin-cli-next"
           class="github"
           target="_blank"
-          >GitHub</a
-        >
+        >GitHub</a>
       </div>
+      <search ref="searchRef"></search>
     </div>
   </header>
 </template>
 
 <script>
+import Search from './search'
+
 export default {
   name: 'MainHeader',
+  components: { Search },
+  methods: {
+    openSearch() {
+      this.$refs.searchRef.handleOpen()
+    },
+    handleCommand(name) {
+      this.$util.open(`https://github.com/wangbin3162/${name}`, true)
+    }
+  }
 }
 </script>
 
@@ -43,21 +61,39 @@ export default {
     margin: 0 auto;
     height: 80px;
     .logo {
+      display: flex;
+      align-items: center;
       color: #1089ff;
       text-transform: uppercase;
       font-weight: bold;
       font-family: helvetica;
-      text-align: center;
       font-size: 40px;
-      margin-left: 30px;
-      width: 220px;
       height: 80px;
-      background: url('../assets/bin-ui.png') no-repeat 0 0;
-      background-size: 220px 80px;
+      padding-left: 24px;
+      .icon {
+        width: 54px;
+        height: 54px;
+      }
+      .text {
+        height: 64px;
+        overflow: hidden;
+        margin-left: 18px;
+        img {
+          width: 100%;
+          opacity: .85;
+          transform: translate(-132px, -166px);
+        }
+      }
     }
-    .link {
+    .link-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 0 20px;
-      line-height: 80px;
+      height: 80px;
+      .search {
+        cursor: pointer;
+      }
       a {
         text-decoration: none;
         color: #1989fa;
@@ -69,6 +105,21 @@ export default {
           color: #636363;
         }
       }
+      > span {
+        padding: 0 20px;
+        color: rgba(0, 0, 0, .65);
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  :deep(.bin-select) {
+    .bin-input.bin-input-default {
+      border-color: transparent;
+    }
+    .bin-input-suffix {
+      opacity: 0;
     }
   }
 }

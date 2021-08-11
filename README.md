@@ -1,29 +1,15 @@
-# bin-ui-next
+# bin-cli-next
 
-## Project setup
+本工程是基于bin-ui-next的库模式开发平台，可进行开发自定义组件库并进行预览和调试。
 
-```
-yarn install
-```
+[组件库文档](https://wangbin3162.gitee.io/bin-ui-next/)
 
-### Compiles and hot-reloads for development
+## 注意
 
-```
-yarn serve
-```
+拉取版本后，全局搜素哦bin-cli-next，并给想要编辑的库更换名字，更换时需注意，部分代码可能需要自行实现样式，如左上角log区等
 
-### Compiles and minifies for production
+### 版本
 
-```
-yarn build
-```
+版本标记，目前由于没进行发布，因此下方图片为空，发布后自行修改
 
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[![NPM version](https://img.shields.io/npm/v/bin-cli-next.svg)](https://www.npmjs.com/package/bin-cli-next)

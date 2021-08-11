@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -73,7 +72,7 @@ const config = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       vue: 'vue',
-      'bin-ui-next': '../src/index.js',
+      'bin-cli-next': '../src/index.js',
       examples: path.resolve(__dirname),
     },
   },
@@ -93,10 +92,11 @@ const config = {
     inline: true,
     hot: true,
     stats: 'minimal',
-    port: 8085,
+    port: 8090,
     publicPath: '/',
     contentBase: __dirname,
     overlay: true,
+    open: true
   },
   optimization: {
     splitChunks: {},

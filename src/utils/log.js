@@ -12,10 +12,10 @@ export function typeColor(type = 'default') {
       color = '#52c41a'
       break
     case 'warning':
-      color = '#fea638'
+      color = '#fa8c16'
       break
     case 'danger':
-      color = '#ff4d4f'
+      color = '#f5222d'
       break
     case 'default':
       color = '#35495E'
@@ -80,3 +80,10 @@ const log = {
 }
 
 export default log
+
+export const throwError = (scope, m) => {
+  pretty(scope, m, 'danger')
+}
+export const throwWarn = (scope, m) => {
+  pretty(scope, m, 'warning')
+}

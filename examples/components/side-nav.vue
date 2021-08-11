@@ -25,11 +25,8 @@
 
 <script>
 import navConf from '../nav.config.json'
-import BScrollbar from '../../src/components/scrollbar/scrollbar'
-import BIcon from '../../src/components/icon/icon'
 
 export default {
-  components: { BIcon, BScrollbar },
   data() {
     return {
       data: navConf,
@@ -60,7 +57,7 @@ export default {
     margin-bottom: 12px;
   }
   .side-nav-title {
-    margin: 6px 0;
+    margin: 12px 0;
     padding: 0 12px;
     color: #2a3040;
     font-size: 16px;
@@ -99,6 +96,7 @@ export default {
       .b-iconfont {
         position: relative;
         top: 1px;
+        font-size: 16px;
         margin-right: 8px;
       }
       .writing-icon {
@@ -120,7 +118,7 @@ export default {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 2px;
+        right: 0;
         background: #2d8cf0;
       }
     }

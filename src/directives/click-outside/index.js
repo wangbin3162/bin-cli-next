@@ -9,8 +9,10 @@ let startClick
 if (!isServer) {
   on(document, 'mousedown', (e) => (startClick = e))
   on(document, 'mouseup', (e) => {
-    for (const { documentHandler } of nodeList.values()) {
-      documentHandler(e, startClick)
+    for (const handlers of nodeList.values()) {
+      for (const { documentHandler } of handlers) {
+        documentHandler(e, startClick)
+      }
     }
   })
 }
@@ -23,6 +25,7 @@ function createDocumentHandler(el, binding) {
     // due to current implementation on binding type is wrong the type casting is necessary here
     excludes.push(binding.arg)
   }
+
   return function(mouseup, mousedown) {
     const popperRef = binding.instance.popperRef
     const mouseUpTarget = mouseup.target
@@ -32,19 +35,9 @@ function createDocumentHandler(el, binding) {
     const isContainedByEl = el.contains(mouseUpTarget) || el.contains(mouseDownTarget)
     const isSelf = el === mouseUpTarget
 
-    const isTargetExcluded =
-      (excludes.length &&
-        excludes.some(item => item?.contains(mouseUpTarget))
-      ) || (
-      excludes.length && excludes.includes(mouseDownTarget)
-  )
-    const isContainedByPopper = (
-      popperRef &&
-      (
-        popperRef.contains(mouseUpTarget) ||
-        popperRef.contains(mouseDownTarget)
-      )
-    )
+    const isTargetExcluded = (excludes.length && excludes.some(item => item?.contains(mouseUpTarget))) || (excludes.length && excludes.includes(mouseDownTarget))
+    const isContainedByPopper = (popperRef && (popperRef.contains(mouseUpTarget) || popperRef.contains(mouseDownTarget)))
+
     if (
       isBound ||
       isTargetExists ||
@@ -55,24 +48,41 @@ function createDocumentHandler(el, binding) {
     ) {
       return
     }
-    binding.value()
+    binding.value(mouseup, mousedown)
   }
 }
 
 const ClickOutside = {
   beforeMount(el, binding) {
-    nodeList.set(el, {
+    // there could be multiple handlers on the element
+    if (!nodeList.has(el)) {
+      nodeList.set(el, [])
+    }
+    nodeList.get(el).push({
       documentHandler: createDocumentHandler(el, binding),
       bindingFn: binding.value,
     })
   },
   updated(el, binding) {
-    nodeList.set(el, {
+    if (!nodeList.has(el)) {
+      nodeList.set(el, [])
+    }
+    const handlers = nodeList.get(el)
+    const oldHandlerIndex = handlers.findIndex(item => (item.bindingFn === binding.oldValue))
+    const newHandler = {
       documentHandler: createDocumentHandler(el, binding),
       bindingFn: binding.value,
-    })
+    }
+
+    if (oldHandlerIndex >= 0) {
+      // replace the old handler to the new handler
+      handlers.splice(oldHandlerIndex, 1, newHandler)
+    } else {
+      handlers.push(newHandler)
+    }
   },
   unmounted(el) {
+    // remove all listeners when a component unmounted
     nodeList.delete(el)
   },
 }

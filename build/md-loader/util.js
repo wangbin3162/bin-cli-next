@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { compileTemplate, TemplateCompiler } = require('@vue/compiler-sfc')
 
 function stripScript(content) {
@@ -66,7 +65,7 @@ function genInlineComponentText(template, script) {
     script = script
       .replace(/export\s+default/, 'const democomponentExport =')
       .replace(/import ({.*}) from 'vue'/g, (s, s1) => `const ${s1} = Vue`)
-      .replace(/import ({.*}) from 'bin-ui-next'/g, (s, s1) => `const ${s1} = require('bin-ui-next')`)
+      .replace(/import ({.*}) from 'bin-cli-next'/g, (s, s1) => `const ${s1} = require('bin-cli-next')`)
   } else {
     script = 'const democomponentExport = {}'
   }

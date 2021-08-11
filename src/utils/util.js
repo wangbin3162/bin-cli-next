@@ -178,6 +178,26 @@ export function getRandomInt(min, max) {
 }
 
 /**
+ * 打乱某个数组
+ * @return {number}
+ */
+export function shuffle(arr) {
+  let newArr = arr.slice()// 复制一个新数组
+  for (let i = 0; i < newArr.length; i++) {
+    let j = getRandomInt(0, i)// 在0-当前循环的位置随机一个位置做交换
+    swap(arr, i, j)
+  }
+  return newArr
+}
+
+// 交换两个数组内容
+export function swap(arr, i, j) {
+  const t = arr[i]
+  arr[i] = arr[j]
+  arr[j] = t
+}
+
+/**
  * 节流函数，(限制函数的执行频率)返回函数连续调用时，空闲时间必须大于或等于 wait，func 才会执行
  *
  * @param  {function} func        回调函数
@@ -231,5 +251,47 @@ export function throttle(func, wait, immediate) {
  * @return {function}             返回客户调用函数
  */
 export function debounce(func, wait) {
-  throttle(func, wait, false)
+  return throttle(func, wait, false)
 }
+
+// 判断是否是对象或数组
+export function isObject(obj) {
+  return typeof obj === 'object' && obj !== null
+}
+
+// 判定对象数组相等
+export function isEqual(obj1, obj2) {
+  // 两个数据有任何一个不是对象或数组
+  if (!isObject(obj1) || !isObject(obj2)) {
+    // 值类型(注意：参与equal的一般不会是函数)
+    return obj1 === obj2
+  }
+  // 如果传的两个参数都是同一个对象或数组
+  if (obj1 === obj2) {
+    return true
+  }
+
+  // 两个都是对象或数组，而且不相等
+  // 1.先比较obj1和obj2的key的个数，是否一样
+  const obj1Keys = Object.keys(obj1)
+  const obj2Keys = Object.keys(obj2)
+  if (obj1Keys.length !== obj2Keys.length) {
+    return false
+  }
+
+  // 如果key的个数相等,就是第二步
+  // 2.以obj1为基准，和obj2依次递归比较
+  for (let key in obj1) {
+    // 比较当前key的value  --- 递归
+    const res = isEqual(obj1[key], obj2[key])
+    if (!res) {
+      return false
+    }
+  }
+
+  // 3.全相等
+  return true
+}
+
+// 随机id
+export const generateId = () => Math.floor(Math.random() * 10000)

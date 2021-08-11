@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    MIT Licensed | Copyright © 2021-present bin-ui-next
+    MIT Licensed | Copyright © 2021-present bin-cli-next
   </footer>
 </template>
 
